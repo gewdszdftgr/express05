@@ -11,7 +11,6 @@ app.get("/",(req,res)=>{
 
 // /singer/:id.html
 app.get("/singer/:id.html",(req,res)=>{
-    res.send(`${req.params.id}`)
     const {id} = req.params ; 
     // find(v,i,arr) 
     let result = singers.find(singer => singer.id === parseInt(id));
@@ -24,11 +23,11 @@ app.get("/singer/:id.html",(req,res)=>{
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${singer_name}的頁面</title>
+        <title>${result.singer_name}的頁面</title>
     </head>
     <body>
-        <h1>${singer_name}的頁面</h1>
-        <img src=">${result.singer_img}" alt="">
+        <h1>${result.singer_name}的頁面</h1>
+        <img src="${result.singer_img}" alt="">
     </body>
     </html>`);
 });
